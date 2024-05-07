@@ -5,7 +5,6 @@
  *      Author: Aldo
  */
 
-#pragma once
 
 #include<SFML/Graphics.hpp>
 #include "personagem.hpp"
@@ -28,18 +27,17 @@ void ganhaPontos(Personagem& player, Lamina& saw, sf::Window& janela){
 	float distancia = (player.x - saw.x) > 0 ? player.x - saw.x : (player.x - saw.x) * -1;
 	player.noChao = player.y >= janela.getSize().y - player.sprite.getGlobalBounds().height;
 
-	if(player.y - player.sprite.getGlobalBounds().height < saw.y - saw.sprite.getGlobalBounds().height && distancia < 10 && !saw.marcada){
+	if(player.y - player.sprite.getGlobalBounds().height < saw.y - saw.sprite.getGlobalBounds().height && distancia < 5 && !saw.marcada){
 		saw.marcada = true;
 		saw.sprite.setColor(sf::Color::Green);
 		player.pontos++;
-
 }
 
 	if(player.noChao && saw.marcada){
 		saw.ativa = false;
-
 	}
 }
+
 
 
 

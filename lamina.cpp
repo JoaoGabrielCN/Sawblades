@@ -36,4 +36,15 @@ void Lamina::colisaoTela(sf::Window& janela){
     }
 }
 
+void Lamina::atualiza(sf::Window& janela){
+	 textura.loadFromFile("assets/saw.png");
+	 sprite.setTexture(textura);
+
+	 Lamina::colisaoTela(janela);
+
+	 x += velX;
+	 y += velY;
+
+	 sprite.setPosition(x, y);
+}
 
