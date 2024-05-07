@@ -4,7 +4,11 @@
  *  Created on: 23 de abr. de 2024
  *      Author: Aldo
  */
-#pragma once
+
+
+#ifndef LAMINA_HPP
+#define LAMINA_HPP
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -22,5 +26,8 @@ public:
 
     void colisaoTela(sf::Window& janela);
 
+    void atualiza(sf::Window& janela);
+
 };
 
+#endif //LAMINA_HPP

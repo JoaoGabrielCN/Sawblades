@@ -19,8 +19,8 @@ public:
 
     bool noChao = false;
 
-    float x, y, velX, velY, alturaPulo = -20.f;
-    float gravidade = 0.8;
+    float x, y, velX, velY, alturaPulo = -16.f;
+    float gravidade = 0.6;
 
     Personagem(sf::Window& janela);
 
@@ -29,4 +29,6 @@ public:
     void andar();
 
     void pular(sf::Window& janela);
+
+    void atualiza(sf::Window& janela);
 };

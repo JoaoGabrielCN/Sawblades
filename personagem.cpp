@@ -6,6 +6,7 @@
  */
 
 #include "personagem.hpp"
+#include<iostream>
 
 Personagem::Personagem(sf::Window& janela) { // @suppress("Class members should be properly initialized")
     textura.loadFromFile("assets/mario.png");
@@ -26,11 +27,11 @@ void Personagem::colisaoTela(sf::Window& janela) {
 void Personagem::andar() {
     velX = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-        velX = 6;
+        velX = 5;
         sprite.setScale(1, 1);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-        velX = -6;
+        velX = -5;
         sprite.setScale(-1, 1);
     }
     x += velX;
@@ -39,17 +40,33 @@ void Personagem::andar() {
 void Personagem::pular(sf::Window& janela) {
     noChao = y >= janela.getSize().y - sprite.getGlobalBounds().height;
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && noChao) {
+    bool pressionado = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+
+    if (pressionado && noChao) {
         noChao = false;
         velY = alturaPulo;
+        pressionado = false;
+
     }
+
     if (!noChao) {
         velY += gravidade;
+
     } else {
         velY = 0;
         y = janela.getSize().y - sprite.getGlobalBounds().height;
         noChao = true;
     }
 
+    pressionado = false;
     y += velY;
+}
+
+void Personagem::atualiza(sf::Window& janela){
+
+	Personagem::colisaoTela(janela);
+	Personagem::pular(janela);
+	Personagem::andar();
+
+	sprite.setPosition(x, y);
 }
