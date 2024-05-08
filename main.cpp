@@ -5,11 +5,14 @@
  *      Author: Aldo
  */
 
-#include "game.hpp"
+#include "src/game.hpp"
 #include<SFML/Graphics.hpp>
 
 int main() {
-    Game game;
-    game.run();
+    Game *game = new Game;
+    game->run();
+
+    delete game;
+    game = nullptr;
     return 0;
 }
