@@ -17,6 +17,8 @@ public:
 
     int pontos = 0;
 
+    bool vivo = true;
+
     bool noChao = false;
 
     float x, y, velX, velY, alturaPulo = -16.f;
