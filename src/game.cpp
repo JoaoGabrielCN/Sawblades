@@ -41,7 +41,7 @@ void Game::criaSaw(){
         novaLamina.x = std::rand() % (window.getSize().x - 50);
         novaLamina.y = 0 - novaLamina.sprite.getGlobalBounds().height;
         saws.push_back(novaLamina);
-        intervalo = 0 + rand() % 4;
+        intervalo =  rand() % 4;
         relogio.restart();
     }
 }
@@ -75,11 +75,12 @@ void Game::atualiza() {
             saw.colisaoTela(window);
             saw.x += saw.velX;
             saw.y += saw.velY;
+
             saw.sprite.setPosition(saw.x, saw.y);
             saw.textura.loadFromFile("assets/saw.png");
             saw.sprite.setTexture(saw.textura);
 
-            colisao(player, saw, pausado);
+            colisao(player, saw, pausado, window);
             ganhaPontos(player, saw, window);
         }
 
@@ -91,7 +92,8 @@ void Game::atualiza() {
 void Game::desenha() {
 
 	if(!pausado){
-    window.clear(sf::Color::Blue);
+
+		window.clear(sf::Color::Blue);
 
     for (unsigned int i = 0; i < saws.size(); ++i){
         if (saws[i].ativa) {
@@ -111,6 +113,8 @@ void Game::desenha() {
         window.draw(textoFim);
         window.display();
     }
+
+
 
 }
 

@@ -25,7 +25,10 @@ void Personagem::colisaoTela(sf::Window& janela) {
 }
 
 void Personagem::andar() {
-    velX = 0;
+
+	if(vivo){
+
+	velX = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velX = 5;
         sprite.setScale(1, 1);
@@ -35,6 +38,7 @@ void Personagem::andar() {
         sprite.setScale(-1, 1);
     }
     x += velX;
+	}
 }
 
 void Personagem::pular(sf::Window& janela) {
