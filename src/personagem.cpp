@@ -74,3 +74,14 @@ void Personagem::atualiza(sf::Window& janela){
 
 	sprite.setPosition(x, y);
 }
+
+void Personagem::reset(sf::Window& janela){
+
+    textura.loadFromFile("assets/mario.png");
+    sprite.setTexture(textura);
+    x = janela.getSize().x/2;
+    y = janela.getSize().y - sprite.getGlobalBounds().height;
+    sprite.setColor(sf::Color::White);
+    pontos = 0;
+    vivo = true;
+}
