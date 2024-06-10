@@ -22,17 +22,20 @@ private:
     void atualiza();
     void desenha();
     void criaSaw();
+    void resetGame();
+    void defineVar();
 
     sf::RenderWindow window;
     sf::Font fonte;
     sf::Text textoPontos;
     sf::Text textoFim;
+    sf::Text botaoReset;
     Personagem player;
     std::vector<Lamina> saws;
     sf::Clock relogio;
     sf::Time tempoPassado;
 
-    int intervalo;
+    float intervalo;
     bool pausado;
 };
 

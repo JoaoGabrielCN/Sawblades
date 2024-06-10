@@ -33,4 +33,6 @@ public:
     void pular(sf::Window& janela);
 
     void atualiza(sf::Window& janela);
+
+    void reset(sf::Window& janela);
 };

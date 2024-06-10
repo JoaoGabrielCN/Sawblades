@@ -37,7 +37,7 @@ void ganhaPontos(Personagem& player, Lamina& saw, sf::Window& janela){
 
 	player.noChao = player.y >= janela.getSize().y - player.sprite.getGlobalBounds().height;
 
-	if(player.y - player.sprite.getGlobalBounds().height < saw.y - saw.sprite.getGlobalBounds().height && distancia < 5 && !saw.marcada && player.vivo){
+	if(player.y - player.sprite.getGlobalBounds().height < saw.y - saw.sprite.getGlobalBounds().height && distancia < 10 && !saw.marcada && player.vivo){
 		saw.marcada = true;
 		saw.sprite.setColor(sf::Color::Green);
 		player.pontos++;
