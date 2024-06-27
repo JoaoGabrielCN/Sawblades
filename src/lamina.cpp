@@ -22,6 +22,8 @@ Lamina::Lamina(float velX, float velY, float direcao){ // @suppress("Class membe
     this->velX = velX * direcao;
     this->velY = velY;
 
+	 textura.loadFromFile("assets/saw.png");
+	 sprite.setTexture(textura);
 }
 
 void Lamina::colisaoTela(sf::Window& janela){

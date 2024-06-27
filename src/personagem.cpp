@@ -6,7 +6,6 @@
  */
 
 #include "personagem.hpp"
-#include<iostream>
 
 Personagem::Personagem(sf::Window& janela) { // @suppress("Class members should be properly initialized")
     textura.loadFromFile("assets/mario.png");
@@ -19,8 +18,8 @@ void Personagem::colisaoTela(sf::Window& janela) {
     if (x  > janela.getSize().x - sprite.getGlobalBounds().width + sprite.getGlobalBounds().width * 0.5) {
         x = janela.getSize().x - sprite.getGlobalBounds().width + sprite.getGlobalBounds().width * 0.5;
     }
-    if (x  <= 0 +  sprite.getGlobalBounds().width * 0.5) {
-        x = 0 + sprite.getGlobalBounds().width * 0.5 ;
+    if (x  < sprite.getGlobalBounds().width * 0.5) {
+        x = sprite.getGlobalBounds().width * 0.5 ;
     }
 }
 
@@ -65,7 +64,6 @@ void Personagem::pular(sf::Window& janela) {
     pressionado = false;
     y += velY;
 }
-
 void Personagem::atualiza(sf::Window& janela){
 
 	Personagem::colisaoTela(janela);

@@ -23,7 +23,9 @@ private:
     void desenha();
     void criaSaw();
     void resetGame();
-    void defineVar();
+    void atualizaPontos(Personagem& player, Lamina& saw, sf::Window& janela);
+    void colisao(Personagem& player, Lamina& saw, bool& pause, sf::Window& janela);
+
 
     sf::RenderWindow window;
     sf::Font fonte;
